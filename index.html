@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Did you mean localhost:8787?</title>
+  <meta name="description" content="You probably typed localhost:8787 and your browser searched for it instead. How to get back to your local development server." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <main>
+    <h1>Did you mean <a href="https://localhost:8787/">https://localhost:8787</a>?</h1>
+    <p>You are on <strong>localhost8787.com</strong>, a real website on the internet - not your machine.
+      Your browser (or its search bar) probably turned <code>localhost:8787</code> into a web search or
+      a <code>.com</code> guess because nothing answered on that port.</p>
+    <h2>Things to check</h2>
+    <ul>
+      <li>Is your dev server actually running? Start it, then try
+        <a href="http://localhost:8787/"><code>http://localhost:8787/</code></a> or
+        <a href="https://localhost:8787/"><code>https://localhost:8787/</code></a> again.</li>
+      <li>Is it listening on port <code>8787</code>? Check the port in its startup output
+        (8787 is the default for Cloudflare's <code>wrangler dev</code>, among others).</li>
+      <li>Type the scheme explicitly - <code>http://localhost:8787</code> - so the address bar
+        cannot treat it as a search.</li>
+      <li>If it still fails: is something else bound to the port (<code>netstat -ano | findstr 8787</code>
+        on Windows, <code>lsof -i :8787</code> on macOS/Linux), or a firewall in the way?</li>
+    </ul>
+    <p class="small">This page sets no cookies and exists only to catch this common typo.
+      It is not affiliated with any product that uses port 8787.</p>
+  </main>
+</body>
+</html>
